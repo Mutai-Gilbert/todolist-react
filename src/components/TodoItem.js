@@ -1,10 +1,14 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
+import { FaTrash } from 'react-icons/fa';
+import { AiFillEdit } from 'react-icons/ai';
 import styles from '../styles/TodoItem.module.css';
+import { useTodosContext } from '../context/TodosContext';
 
 const TodoItem = ({
-  itemProp, handleChange, delTodo, setUpdate,
+  itemProp,
 }) => {
+  const { handleChange, delTodo, setUpdate } = useTodosContext();
   const [updateInput, setUpdateInput] = useState(itemProp.title);
   const [editing, setEditing] = useState(false);
   const handleEditing = () => {
@@ -31,8 +35,12 @@ const TodoItem = ({
           checked={itemProp.completed}
           onChange={() => handleChange(itemProp.id)}
         />
-        <button type="button" onClick={handleEditing}>Edit</button>
-        <button type="button" onClick={() => delTodo(itemProp.id)}>Delete</button>
+        <button type="button" onClick={handleEditing}>
+          <AiFillEdit />
+        </button>
+        <button type="button" onClick={() => delTodo(itemProp.id)}>
+          <FaTrash />
+        </button>
         {updateInput}
       </div>
       <input
@@ -52,8 +60,5 @@ TodoItem.propTypes = {
     id: PropTypes.number.isRequired,
     completed: PropTypes.bool.isRequired,
   }).isRequired,
-  handleChange: PropTypes.func.isRequired,
-  delTodo: PropTypes.func.isRequired,
-  setUpdate: PropTypes.func.isRequired,
 };
 export default TodoItem;
