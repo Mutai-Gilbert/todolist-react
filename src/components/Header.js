@@ -1,9 +1,13 @@
+import PropTypes from 'prop-types';
 import styles from '../styles/Header.module.css';
 
-const Header = () => (
+const Header = ({ children }) => (
   <header className={styles.header}>
-    <h1>todos</h1>
-    <p>Items will persist in the browser local storage</p>
+    {children}
   </header>
 );
+
+Header.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 export default Header;
