@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { FaTrash } from 'react-icons/fa';
 import { AiFillEdit } from 'react-icons/ai';
+// import { useAuthContext } from '../context/AuthContext';
 import styles from '../styles/TodoItem.module.css';
 import { useTodosContext } from '../context/TodosContext';
 
