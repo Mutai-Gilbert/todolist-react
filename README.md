@@ -2,7 +2,7 @@
 
 # React-Todo-List
 
-> Description the project.
+> A To-Do List Built Using React.
 
 
 ## Built With
